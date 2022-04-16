@@ -50,14 +50,18 @@ body
     height: 55px;
     width: 190px;
     position: absolute;
-    bottom: 37px;
+    bottom: 35px;
     right: -20px;
-    animation: gruntAnimate 1s linear infinite;
+    z-index: 1;
 }
 #container #grunt img
 {
     height: 55px;
     width: 190px;
+}
+.gruntActive
+{
+    animation: gruntAnimate 1s linear infinite;
 }
 @keyframes gruntAnimate{
     0%
@@ -67,5 +71,30 @@ body
     100%
     {
         right: 100%;
+    }
+}
+#container #terrain
+{
+    height: 47px;
+    width: 120px;
+    position: absolute;
+    bottom: 0;
+}
+#container #terrain img
+{
+    height: 47px;
+    width: 2000px;
+    position: absolute;
+    left: 0;
+    animation: terrainAnimate 1s linear infinite;
+}
+@keyframes terrainAnimate{
+    0%
+    {
+        left: 0;
+    }
+    100%
+    {
+        left: -800px;
     }
 }
