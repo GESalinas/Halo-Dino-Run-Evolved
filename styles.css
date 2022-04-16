@@ -20,17 +20,20 @@ body
 }
 #container #masterChief
 {
-    height: 70px;
-    width: 70px;
+    height: 90px;
+    width: 90px;
     position: absolute;
     bottom: 28px;
     left: 20px;
-    animation: animatemasterChief 0.5s linear infinite;
 }
 #container #masterChief img
 {
-    height: 70px;
-    width: 70px;
+    height: 90px;
+    width: 90px;
+}
+.masterChiefActive
+{
+    animation: animatemasterChief 0.5s linear infinite;
 }
 @keyframes animatemasterChief{
     0%,100%
@@ -40,5 +43,29 @@ body
     45%,55%
     {
         bottom:160px;
+    }
+}
+#container #grunt
+{
+    height: 55px;
+    width: 190px;
+    position: absolute;
+    bottom: 37px;
+    right: -20px;
+    animation: gruntAnimate 1s linear infinite;
+}
+#container #grunt img
+{
+    height: 55px;
+    width: 190px;
+}
+@keyframes gruntAnimate{
+    0%
+    {
+        right: -125px;
+    }
+    100%
+    {
+        right: 100%;
     }
 }
