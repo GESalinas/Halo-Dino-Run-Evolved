@@ -25,9 +25,20 @@ body
     position: absolute;
     bottom: 28px;
     left: 20px;
+    animation: animatemasterChief 0.5s linear infinite;
 }
 #container #masterChief img
 {
     height: 70px;
     width: 70px;
+}
+@keyframes animatemasterChief{
+    0%,100%
+    {
+        bottom: 28px;
+    }
+    45%,55%
+    {
+        bottom:160px;
+    }
 }
