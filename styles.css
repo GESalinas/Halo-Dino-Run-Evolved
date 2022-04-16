@@ -86,7 +86,7 @@ body
     width: 2000px;
     position: absolute;
     left: 0;
-    animation: terrainAnimate 1s linear infinite;
+    animation: none;
 }
 @keyframes terrainAnimate{
     0%
@@ -96,5 +96,31 @@ body
     100%
     {
         left: -800px;
+    }
+}
+#container #cloud
+{
+    height: 150px;
+    width: 1200px;
+    border-radius: 40px;
+    position: absolute;
+    top: 30px;
+}
+#container #cloud img
+{
+    height: 150px;
+    width: 2000px;
+    position: absolute;
+    left: -2000px;
+    animation: cloudAnimate 3s linear infinite;
+}
+@keyframes cloudAnimate{
+    0%
+    {
+        left: -2000px;
+    }
+    100%
+    {
+        left: 100%;
     }
 }
