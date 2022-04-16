@@ -1,0 +1,33 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body
+{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+#container
+{
+    height: 400px;
+    width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+#container #masterChief
+{
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    bottom: 28px;
+    left: 20px;
+}
+#container #masterChief img
+{
+    height: 70px;
+    width: 70px;
+}
