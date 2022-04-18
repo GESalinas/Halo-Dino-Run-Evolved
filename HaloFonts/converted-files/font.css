@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Halo';
+  src: url('Halo.eot');
+  src: url('Halo.eot?#iefix') format('embedded-opentype'),
+       url('Halo.svg#Halo') format('svg'),
+       url('Halo.ttf') format('truetype'),
+       url('Halo.woff') format('woff'),
+       url('Halo.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

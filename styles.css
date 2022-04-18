@@ -112,7 +112,7 @@ body
     width: 2000px;
     position: absolute;
     left: -2000px;
-    animation: cloudAnimate 3s linear infinite;
+    animation: none;
 }
 @keyframes cloudAnimate{
     0%
@@ -123,4 +123,27 @@ body
     {
         left: 100%;
     }
+}
+
+@font-face {
+    font-family: 'Halo';
+    src: url(HaloFonts/converted-files/Halo.ttf);
+}
+#time {
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#gameOver
+{
+    display: none;
+    font-family: 'Halo';
+    font-size: 70px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+    width: 362px;
+    height: 80px;
 }
