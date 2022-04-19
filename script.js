@@ -29,7 +29,21 @@ window.addEventListener("keydown", (start)=>{
             
             //timer
             let playerTime = 60;
-            interval = setInterval(timeCounter,200);
+            interval = setInterval(timeCounter,1000);
         }
-})
+});
+
+//Making Master Chief Jump
+window.addEventListener("keydown", (e)=> {
+
+    if (e.key == "ArrowUp")
+        if (masterChief.classList != "masterChiefActive") {
+                masterChief.classList.add("masterChiefActive");
+                    //remove class after 0.5 seconds
+                setTimeout(()=>{
+                    masterChief.classList.remove("masterChiefActive");
+                },500);
+            }
+});
+
 }
