@@ -76,7 +76,7 @@ body
 #container #terrain
 {
     height: 47px;
-    width: 120px;
+    width: 1200px;
     position: absolute;
     bottom: 0;
 }
@@ -125,10 +125,7 @@ body
     }
 }
 
-@font-face {
-    font-family: 'Halo';
-    src: url(HaloFonts/converted-files/Halo.ttf);
-}
+
 #time {
     height: auto;
     width: auto;
@@ -146,4 +143,9 @@ body
     top: calc(50% - 100px);
     width: 362px;
     height: 80px;
+}
+
+@font-face {
+    font-family: 'Halo';
+    src: url(HaloFonts/converted-files/Halo.ttf);
 }

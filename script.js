@@ -8,7 +8,7 @@ let gameOver = document.querySelector("#gameOver");
 
 //Creating the timer
 let interval = null;
-let playerTime = 60;
+let playerTime = 61;
 
 
 //function for time countdown
@@ -28,7 +28,7 @@ window.addEventListener("keydown", (start)=>{
             cloud.firstElementChild.style.animation ="cloudAnimate 50s linear infinite";
             
             //timer
-            let playerTime = 60;
+            let playerTime = 61;
             interval = setInterval(timeCounter,1000);
         }
 });
@@ -45,5 +45,22 @@ window.addEventListener("keydown", (e)=> {
                 },500);
             }
 });
+
+//Hit detection and death
+let result = setInterval(() => {
+    let masterChiefBottom = parseInt(getComputedStyle(masterChief).getPropertyValue("bottom"));
+
+    let gruntLeft = parseInt(getComputedStyle(grunt).getPropertyValue("left"));
+
+    if (masterChiefBottom <= 90 && gruntLeft >= 20 && gruntLeft <= 70) {
+
+        gameOver.style.display = "initial";
+        grunt.classList.remove("gruntActive");
+        terrain.firstElementChild.style.animation = "none";
+        cloud.firstElementChild.style.animation = "none";
+        clearInterval(interval);
+        playerTime = 61;
+    }
+}, 10);
 
 }
