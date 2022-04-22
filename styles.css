@@ -133,16 +133,56 @@ body
     top: 20px;
     right: 0;
 }
-#gameOver
+#gameOverText
 {
     display: none;
-    font-family: 'Halo';
+    font-family: Halo;
     font-size: 70px;
     position: absolute;
-    left: calc(50% - 100px);
-    top: calc(50% - 100px);
+    left: calc(50% - 125px);
+    top: calc(50% - 60px);
     width: 362px;
     height: 80px;
+    color: white;
+    z-index: 3;
+}
+#gameOverBG
+{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    z-index: 2;
+}
+#container #pelican
+{
+    height: 224px;
+    width: 754px;
+    position: absolute;
+    bottom: 35px;
+    right: -775px;
+    z-index: 1;
+}
+#container #pelican img
+{
+    height: 224px;
+    width: 754px;
+}
+.pelicanActive
+{
+    animation: pelicanAnimate 5.4s linear infinite;
+}
+@keyframes pelicanAnimate{
+    0%
+    {
+        right: -775px;
+    }
+    100%
+    {
+        right: 65%;
+    }
 }
 
 @font-face {
