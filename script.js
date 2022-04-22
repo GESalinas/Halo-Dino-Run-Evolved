@@ -6,6 +6,8 @@ let cloud = document.querySelector("#cloud");
 let time = document.querySelector("#time");
 let gameOverText = document.querySelector("#gameOverText");
 let gameOverBG = document.querySelector("#gameOverBG")
+let victoryText = document.querySelector("#victoryText")
+let victoryBG = document.querySelector("#victoryBG")
 let pelican = document.querySelector("#pelican")
 
 //Creating the timer
@@ -22,6 +24,10 @@ let timeCounter = ()=>{
     }
     if(playerTime == 5){
         pelican.classList.add("pelicanActive")
+    }
+    if(playerTime == 0){
+        victoryText.style.display = "block";
+        victoryBG.style.display = "block";
     }
 }
 
