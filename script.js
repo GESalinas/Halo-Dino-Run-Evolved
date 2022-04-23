@@ -16,7 +16,14 @@ let startBTNBG = document.querySelector("#startBTNBG")
 
 
 //creating the Menu Sequence
-
+document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
+    startBTN.parentNode.removeChild(startBTN)
+    startBTNBG.remove(startBTNBG)
+    let zetaHalo = new Howl({
+        src: ['sounds/Halo 8Bit - Zeta Halo.mp3']
+    });
+    zetaHalo.play();
+});
 
 
 //Creating the timer
