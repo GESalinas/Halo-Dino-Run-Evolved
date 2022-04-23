@@ -180,6 +180,24 @@ body
     background-color: black;
     z-index: 2;
 }
+#epilogue
+{
+    display: none;
+    position: absolute;
+    text-align: center;
+    color: white;
+    z-index: 4;
+}
+#epText
+{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    font-family: "Pixelated";
+}
+
 #container #pelican
 {
     height: 224px;

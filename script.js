@@ -16,6 +16,9 @@ let startBTNBG = document.querySelector("#startBTNBG")
 let menu = document.querySelector("#menu")
 let synopsis = document.querySelector("#synopsis")
 
+//end sequence variables
+let epilogue = document.querySelector("#epilogue")
+
 let gameOverSound = new Howl({
     src: ['sounds/Game Over.mp3']
 });
@@ -30,7 +33,8 @@ let theRoad = new Howl({
     src: ['sounds/Halo 8Bit - The Road.mp3']
 });
 let KML = new Howl({
-    src: ['sounds/Halo 8Bit - KML SPC.mp3']
+    src: ['sounds/Halo 8Bit - KML SPC.mp3'],
+    loop: true,
 });
 
 
@@ -72,6 +76,11 @@ let timeCounter = ()=>{
         theRoad.stop()
         victorySound.play();
         KML.play();
+    }
+    if(playerTime == -10){
+        victoryBG.parentNode.removeChild(victoryBG)
+        victoryText.parentNode.removeChild(victoryText)
+        epilogue.style.display = "block";
     }
 }
 
