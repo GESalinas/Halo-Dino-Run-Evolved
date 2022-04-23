@@ -25,6 +25,7 @@ body
     position: absolute;
     bottom: 28px;
     left: 20px;
+    z-index: 1;
 }
 #container #masterChief img
 {
@@ -218,19 +219,65 @@ body
     border-radius: 35px;
     font-size: 25px;
     font-weight: bold;
-    color: #f00;
+    color: #4B5320;
     cursor: pointer;
-    z-index: 3;
+    z-index: 6;
 }
-#startBTNBG
+#menu
 {
     display: block;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     background-color: black;
+    z-index: 4;
+}
+#blackBG
+{
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    background-color: blue;
+    z-index: 5;
+}
+#synopsis
+{
+    position: absolute;
+    text-align: center;
+    color: white;
     z-index: 2;
+
+}
+#synopsisText
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-family: "Pixelated";
+}
+
+.fadeOutActive
+{
+    animation: fadeOut 3s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@font-face {
+    font-family: "Pixelated";
+    src: url(HaloFonts/EpsonPixeledRegular-0Py9.ttf);
 }
 
 @font-face {

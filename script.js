@@ -13,15 +13,34 @@ let pelican = document.querySelector("#pelican")
 //Menu Sequence variables
 let startBTN = document.querySelector("#startBTN")
 let startBTNBG = document.querySelector("#startBTNBG")
+let menu = document.querySelector("#menu")
+let synopsis = document.querySelector("#synopsis")
+
+let gameOverSound = new Howl({
+    src: ['sounds/Game Over.mp3']
+});
+let zetaHalo = new Howl({
+    src: ['sounds/Halo 8Bit - Zeta Halo.mp3'],
+    loop: true,
+});
+let victorySound = new Howl({
+    src: ['sounds/Victory.mp3']
+});
+let theRoad = new Howl({
+    src: ['sounds/Halo 8Bit - The Road.mp3']
+});
+let KML = new Howl({
+    src: ['sounds/Halo 8Bit - KML SPC.mp3']
+});
 
 
 //creating the Menu Sequence
 document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
-    startBTN.parentNode.removeChild(startBTN)
-    startBTNBG.remove(startBTNBG)
-    let zetaHalo = new Howl({
-        src: ['sounds/Halo 8Bit - Zeta Halo.mp3']
-    });
+    startBTN.parentNode.removeChild(startBTN);
+    startBTNBG.parentNode.removeChild(startBTNBG);
+    setTimeout(()=>{
+        menu.parentNode.removeChild(menu)
+    },13000);
     zetaHalo.play();
 });
 
@@ -35,6 +54,12 @@ let playerTime = 46;
 let timeCounter = ()=>{
     playerTime--;
     time.innerHTML = `Time left: <b>${playerTime}</b>s`;
+    if(playerTime == 30){
+        let thirtySecs = new Howl({
+            src: ['sounds/30 Seconds Remaining.mp3']
+        });
+        thirtySecs.play();
+    }
     if(playerTime == 10){
         grunt.parentNode.removeChild(grunt)
     }
@@ -44,6 +69,9 @@ let timeCounter = ()=>{
     if(playerTime == 0){
         victoryText.style.display = "block";
         victoryBG.style.display = "block";
+        theRoad.stop()
+        victorySound.play();
+        KML.play();
     }
 }
 
@@ -52,19 +80,18 @@ let timeCounter = ()=>{
 window.addEventListener("keydown", (start)=>{
     if(start.code == "Space")
         {
+            //timer
+            let playerTime = 46;
+            interval = setInterval(timeCounter,1000);
+
+            zetaHalo.stop();
+            theRoad.play();
             gameOverText.style.display = "none";
             gameOverBG.style.display = "none";
             grunt.classList.add("gruntActive");
             terrain.firstElementChild.style.animation ="terrainAnimate 1.5s linear infinite";
             cloud.firstElementChild.style.animation ="cloudAnimate 50s linear infinite";
-            
-          
-
-            
-            
-            //timer
-            let playerTime = 46;
-            interval = setInterval(timeCounter,1000);
+            synopsis.parentNode.removeChild(synopsis);
         }
         
 });
@@ -89,7 +116,6 @@ let result = setInterval(() => {
     let gruntLeft = parseInt(getComputedStyle(grunt).getPropertyValue("left"));
 
     if (masterChiefBottom <= 90 && gruntLeft >= 20 && gruntLeft <= 70) {
-
         gameOverText.style.display = "block";
         gameOverBG.style.display = "block";
         grunt.classList.remove("gruntActive");
@@ -97,6 +123,9 @@ let result = setInterval(() => {
         cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
         playerTime = 46;
+        gameOverSound.play();
+        theRoad.stop();
+        
     }
 }, 10);
  
