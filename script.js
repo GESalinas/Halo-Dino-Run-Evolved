@@ -51,7 +51,7 @@ document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
 
 //Creating the timer
 let interval = null;
-let playerTime = 61;
+let playerTime = 46;
 
 
 //function for time countdown
@@ -90,7 +90,7 @@ window.addEventListener("keydown", (start)=>{
     if(start.code == "Space")
         {
             //timer
-            let playerTime = 61;
+            let playerTime = 46;
             interval = setInterval(timeCounter,1000);
 
             zetaHalo.stop();
@@ -131,7 +131,7 @@ let result = setInterval(() => {
         terrain.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
-        playerTime = 61;
+        playerTime = 46;
         gameOverSound.play();
         theRoad.stop();
         
