@@ -4,7 +4,7 @@ The inspiration for this game was the Chrome Dinosaur game that you can play whe
 
 uses howler.js CDN for sound event handling.
 
-CONTROLS: After clicking play, a starting sequence will play, after about 10 seconds or so the controls will automatically pop up, prompting you to press space to start the game and restart if you die. Press the up arrow to jump. Once you get the timer down to 10 seconds, the ship spawns, when touched you win! After about 10 more seconds, the prologue text shows up. You can now refresh the browser to replay from there.
+CONTROLS: After clicking play, a starting sequence will play, after about 10 seconds or so the controls will automatically pop up, prompting you to press space to start the game and restart if you die. Press the up arrow to jump. Once you get the timer down to 10 seconds, the ship spawns, when touched you win! After about 10 more seconds, the epilogue text shows up. You can now refresh the browser to replay from there.
 
 WARNING: Must be ran using a live server or the sounds will not run! Some events are dependent on the sounds and will therefore make the game unplayable!
 
