@@ -10,9 +10,18 @@ let victoryText = document.querySelector("#victoryText")
 let victoryBG = document.querySelector("#victoryBG")
 let pelican = document.querySelector("#pelican")
 
+//Menu Sequence variables
+let startBTN = document.querySelector("#startBTN")
+let startBTNBG = document.querySelector("#startBTNBG")
+
+
+//creating the Menu Sequence
+
+
+
 //Creating the timer
 let interval = null;
-let playerTime = 26;
+let playerTime = 46;
 
 
 //function for time countdown
@@ -42,10 +51,15 @@ window.addEventListener("keydown", (start)=>{
             terrain.firstElementChild.style.animation ="terrainAnimate 1.5s linear infinite";
             cloud.firstElementChild.style.animation ="cloudAnimate 50s linear infinite";
             
+          
+
+            
+            
             //timer
-            let playerTime = 26;
+            let playerTime = 46;
             interval = setInterval(timeCounter,1000);
         }
+        
 });
 
 //Making Master Chief Jump
@@ -69,14 +83,14 @@ let result = setInterval(() => {
 
     if (masterChiefBottom <= 90 && gruntLeft >= 20 && gruntLeft <= 70) {
 
-        gameOverText.style.display = "initial";
+        gameOverText.style.display = "block";
         gameOverBG.style.display = "block";
         grunt.classList.remove("gruntActive");
         terrain.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
-        playerTime = 26;
+        playerTime = 46;
     }
 }, 10);
-
+ 
 }
