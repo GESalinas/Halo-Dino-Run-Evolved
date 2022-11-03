@@ -37,6 +37,7 @@ let KML = new Howl({
     loop: true,
 });
 
+let gamePlaying = false
 
 //creating the Menu Sequence
 document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
@@ -44,30 +45,32 @@ document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
     startBTNBG.parentNode.removeChild(startBTNBG);
     setTimeout(()=>{
         menu.parentNode.removeChild(menu)
-    },13000);
+    },1000);
     zetaHalo.play();
 });
 
 
 //Creating the timer
-let interval = null;
-let playerTime = 46;
+let startInterval
+let endInterval
+let playerTime = 46000;
 
 
 //function for time countdown
 let timeCounter = ()=>{
-    playerTime--;
+    //if (!gamePlaying) return
+    playerTime -= 1000;
     time.innerHTML = `Time left: <b>${playerTime}</b>s`;
-    if(playerTime == 30){
+    if(playerTime == 30000){
         let thirtySecs = new Howl({
             src: ['sounds/30 Seconds Remaining.mp3']
         });
         thirtySecs.play();
     }
-    if(playerTime == 10){
+    if(playerTime == 10000){
         grunt.parentNode.removeChild(grunt)
     }
-    if(playerTime == 5){
+    if(playerTime == 5000){
         pelican.classList.add("pelicanActive")
     }
     if(playerTime == 0){
@@ -77,7 +80,7 @@ let timeCounter = ()=>{
         victorySound.play();
         KML.play();
     }
-    if(playerTime == -10){
+    if(playerTime == -10000){
         victoryBG.parentNode.removeChild(victoryBG)
         victoryText.parentNode.removeChild(victoryText)
         epilogue.style.display = "block";
@@ -87,12 +90,14 @@ let timeCounter = ()=>{
 
 //Begin Game
 window.addEventListener("keydown", (start)=>{
-    if(start.code == "Space")
+    if(start.code == "Space" && !gamePlaying)
         {
-            //timer
-            let playerTime = 46;
-            interval = setInterval(timeCounter,1000);
 
+            gamePlaying = true;
+            //timer
+            //let playerTime = 46;
+            startInterval = setInterval(timeCounter,1000);
+            endInterval = setInterval(checkDeath, 10)
             zetaHalo.stop();
             theRoad.play();
             gameOverText.style.display = "none";
@@ -119,23 +124,23 @@ window.addEventListener("keydown", (e)=> {
 });
 
 //Hit detection and death
-let result = setInterval(() => {
+const checkDeath = () => {
     let masterChiefBottom = parseInt(getComputedStyle(masterChief).getPropertyValue("bottom"));
-
     let gruntLeft = parseInt(getComputedStyle(grunt).getPropertyValue("left"));
 
     if (masterChiefBottom <= 90 && gruntLeft >= 20 && gruntLeft <= 70) {
+        clearInterval(startInterval);
+        clearInterval(endInterval);
         gameOverText.style.display = "block";
         gameOverBG.style.display = "block";
         grunt.classList.remove("gruntActive");
         terrain.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
-        clearInterval(interval);
-        playerTime = 46;
+        playerTime = 46000;
         gameOverSound.play();
         theRoad.stop();
-        
+        gamePlaying = false;
     }
-}, 10);
+};
  
 }
