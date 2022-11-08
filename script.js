@@ -80,7 +80,7 @@ let timeCounter = ()=>{
         victorySound.play();
         KML.play();
     }
-    if(playerTime == -10000){
+    if(playerTime == -5000){
         victoryBG.parentNode.removeChild(victoryBG)
         victoryText.parentNode.removeChild(victoryText)
         epilogue.style.display = "block";
