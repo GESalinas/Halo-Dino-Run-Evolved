@@ -47,8 +47,7 @@ document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
         menu.parentNode.removeChild(menu)
         isButtonClicked = true;
     },7000);
-    zetaHalo.play();
-   
+    zetaHalo.play();                   
 });
 
 
