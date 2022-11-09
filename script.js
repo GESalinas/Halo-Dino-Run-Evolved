@@ -36,8 +36,8 @@ let KML = new Howl({
     src: ['sounds/Halo 8Bit - KML SPC.mp3'],
     loop: true,
 });
-
-let gamePlaying = false
+let isButtonClicked = false;
+let gamePlaying = false;
 
 //creating the Menu Sequence
 document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
@@ -45,8 +45,10 @@ document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
     startBTNBG.parentNode.removeChild(startBTNBG);
     setTimeout(()=>{
         menu.parentNode.removeChild(menu)
+        isButtonClicked = true;
     },7000);
     zetaHalo.play();
+   
 });
 
 
@@ -90,9 +92,8 @@ let timeCounter = ()=>{
 
 //Begin Game
 window.addEventListener("keydown", (start)=>{
-    if(start.code == "Space" && !gamePlaying)
+    if(start.code == "Space" && !gamePlaying && isButtonClicked)
         {
-
             gamePlaying = true;
             //timer
             //let playerTime = 46;
