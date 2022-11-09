@@ -53,24 +53,24 @@ document.getElementById("startBTN").addEventListener("click", (beginGame)=> {
 //Creating the timer
 let startInterval
 let endInterval
-let playerTime = 46000;
+let playerTime = 46;
 
 
 //function for time countdown
 let timeCounter = ()=>{
     //if (!gamePlaying) return
-    playerTime -= 1000;
+    playerTime -= 1;
     time.innerHTML = `Time left: <b>${playerTime}</b>s`;
-    if(playerTime == 30000){
+    if(playerTime == 30){
         let thirtySecs = new Howl({
             src: ['sounds/30 Seconds Remaining.mp3']
         });
         thirtySecs.play();
     }
-    if(playerTime == 10000){
+    if(playerTime == 10){
         grunt.parentNode.removeChild(grunt)
     }
-    if(playerTime == 5000){
+    if(playerTime == 5){
         pelican.classList.add("pelicanActive")
     }
     if(playerTime == 0){
@@ -80,7 +80,7 @@ let timeCounter = ()=>{
         victorySound.play();
         KML.play();
     }
-    if(playerTime == -5000){
+    if(playerTime == -5){
         victoryBG.parentNode.removeChild(victoryBG)
         victoryText.parentNode.removeChild(victoryText)
         epilogue.style.display = "block";
@@ -136,7 +136,7 @@ const checkDeath = () => {
         grunt.classList.remove("gruntActive");
         terrain.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
-        playerTime = 46000;
+        playerTime = 46;
         gameOverSound.play();
         theRoad.stop();
         gamePlaying = false;
